@@ -1,0 +1,3 @@
+[submodule "magento"]
+	path = magento
+	url = https://github.com/hitarthpattani/magento2.git
