@@ -25,7 +25,7 @@ jobs:
       env:
         COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
       with:
-        php: '7.2'
+        php: '7.1'
         process: 'unit-test'
         elasticsuite: 0
     - name: 'launch magento2 static test'
@@ -34,7 +34,7 @@ jobs:
       env:
         COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
       with:
-        php: '7.2'
+        php: '7.1'
         process: 'static-test'
     - name: 'phpcs testing'
       if: ${{false}}
@@ -42,7 +42,7 @@ jobs:
       env:
         COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
       with:
-        php: '7.2'
+        php: '7.1'
         process: 'phpcs-test'
         extension: 'Magento/CatalogSearch'
         standard: 'Magento2'
@@ -52,7 +52,7 @@ jobs:
       env:
         COMPOSER_AUTH: ${{secrets.COMPOSER_AUTH}}
       with:
-        php: '7.2'
+        php: '7.1'
         process: 'build'
     - name: 'launch magento2 zero downtime deploy'
       if: success()
@@ -68,7 +68,7 @@ jobs:
         SSH_CONFIG: ${{secrets.STAGE_SSH_CONFIG}}
         WRITE_USE_SUDO: false
       with:
-        php: '7.2'
+        php: '7.1'
         process: 'deploy-staging'
     - name: 'unlock deployer if fails'
       if: failure() || cancelled()
@@ -84,5 +84,5 @@ jobs:
         SSH_CONFIG: ${{secrets.STAGE_SSH_CONFIG}}
         WRITE_USE_SUDO: false
       with:
-        php: '7.2'
+        php: '7.1'
         process: 'cleanup-staging'
